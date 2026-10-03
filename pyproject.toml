@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "godel_forest"
+version = "0.0.1"
+description = "External data-generation agent for RSIBench-Data (v0: drives Claude Code via the DATA_AGENT_COMMAND workspace contract)"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+godel_forest = "godel_forest.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+namespaces = true
+
+[tool.setuptools.package-data]
+"godel_forest.workspace_assets" = [
+    "*.md",
+    "*.jsonl",
+    "*.sh",
+    ".claude/skills/*/SKILL.md",
+]
